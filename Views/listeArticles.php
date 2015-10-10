@@ -31,25 +31,25 @@ and open the template in the editor.
             <tbody>
             <?php 
             
-            $art = get_articles($db, 15);
-            var_dump($art);
-            foreach ($art as $k){
+            $listeArticles = get_articles($db, 15);
+            var_dump($listeArticles);
+            foreach ($listeArticles as $k => $v){
                 
-                $idArticle = $art['id_article'];
-                $nom = $art['a_designation'];
-                var_dump($nom);
-                $prixTTC = $art['Prix TTC'];
-                var_dump($prixTTC);
-            
-            ?>
-<!--                <tr>
-                    <td><?php echo $idArticle ?></td>
-                    <td><?php echo $nom ?></td>
-                    <td><?php echo $prixTTC ?></td>
-                </tr>-->
-            <?php
+                $nomArticles = $listeArticles[$k][1];
+                $idArticle = $listeArticles[$k][0];
+                $prixTTC = $listeArticles[$k][2];
+                
+            ?>    
+                <tr>
+                    <td><?php echo $idArticle; ?></td>
+                    <td><?php echo $nomArticles; ?></td>
+                    <td><?php echo $prixTTC; ?></td>
+
+                </tr>
+            <?php  
             }
             ?>
+               
             </tbody>
         </table>
     </body>

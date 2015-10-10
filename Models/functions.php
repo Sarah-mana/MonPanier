@@ -12,11 +12,10 @@ function get_articles($db, $id_categorie){
             FROM tb_article as a
             JOIN tb_tva as t ON a.id_tva = t.id_tva
             WHERE a.id_categorie = ".$id_categorie; 
-    
     $resultat = $db->query($sql);
     
-    while ($articles = $resultat->fetch()){
-        
-        return $articles;
-    }
+    $articles = $resultat->fetchAll();
+            
+    return $articles;
+  
 }
