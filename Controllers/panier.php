@@ -9,9 +9,9 @@ require (dir.'Models/functions.php');
 require (dir.'Models/Connect.php');
 
 $db = Connect::getInstance();
-var_dump($db);
 
-get_articles($db, 15);
+
+
 
 include 'Views/listeArticles.php';
 

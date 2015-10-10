@@ -29,7 +29,7 @@ and open the template in the editor.
             </thead>
             <?php 
             
-            echo 'ZUT';
+            echo get_articles($db, 15);
             ?>
             <tbody>
                 <tr>
