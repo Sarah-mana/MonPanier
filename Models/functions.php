@@ -15,5 +15,8 @@ function get_articles($db, $id_categorie){
     
     $resultat = $db->query($sql);
     
-    return $resultat;
+    while ($articles = $resultat->fetch()){
+        
+        return $articles;
+    }
 }

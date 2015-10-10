@@ -1,5 +1,6 @@
 <?php
-
+$db = Connect::getInstance();
+var_dump($db);
 
 ?>
 
@@ -24,21 +25,31 @@ and open the template in the editor.
                     <th>Désignation</th>
                     <th>Prix TTC</th>
                     <th>Qté</th>
-                    <th>Total</th>
                 </tr>
             </thead>
+            
+            <tbody>
             <?php 
             
-            echo get_articles($db, 15);
+            $art = get_articles($db, 15);
+            var_dump($art);
+            foreach ($art as $k){
+                
+                $idArticle = $art['id_article'];
+                $nom = $art['a_designation'];
+                var_dump($nom);
+                $prixTTC = $art['Prix TTC'];
+                var_dump($prixTTC);
+            
             ?>
-            <tbody>
-                <tr>
-                    <td>blaijt'ojrijeijriybla</td>
-                    <td>blabla</td>
-                    <td>blalkdfgjkgtjhkslrtioyh(bla</td>
-                    <td>blabla</td>
-                    <td>blabla</td>
-                </tr>
+<!--                <tr>
+                    <td><?php echo $idArticle ?></td>
+                    <td><?php echo $nom ?></td>
+                    <td><?php echo $prixTTC ?></td>
+                </tr>-->
+            <?php
+            }
+            ?>
             </tbody>
         </table>
     </body>
